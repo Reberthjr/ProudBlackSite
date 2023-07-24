@@ -1,0 +1,51 @@
+﻿
+<h1>Gerenciamento de imagens</h1>
+
+<table border="0" width="100%">
+    <tr class="row">
+        <td>
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="UploadFiles">
+                <div class="form-group">
+                    <p><b>Selecione um ou mais arquivos para enviar :</b></p>
+                    <p>(Arquivos com o mesmo nome serão sobrescritos)</p>
+                </div>
+                <img  style="margin-bottom:10px" src="~/img/UploadArquivos/upload.png" width="200" height="150" />
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <p>(favor encaminhar arquivos: (jpg ou jpeg)</p>
+                        <input type="file" name="files" multiple class="button btn-outline-primary" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input style="margin-top:10px" type="submit" value="Enviar Arquivo(s)" class="button btn-outline-primary" />
+                    </div>
+                </div>
+            </form>
+            <hr />
+        </td>
+
+        <td>
+            <form method="post" enctype="multipart/form-data" asp-controller="AdminImagens" asp-action="GetImagens">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p><strong>Visualizar Imagens na pasta do servidor :</strong></p>
+                    </div>
+                </div>
+                <img style="margin-bottom:10px" src="~/img/UploadArquivos/see.png" width="200" height="200" />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Visualizar Arquivos no servidor" class="button btn-outline-primary" />
+                    </div>
+                </div>
+                <hr />
+            </form>
+        </td>
+    </tr>
+</table>
+<div class="container">
+    @if (ViewData["Deletado"] != null)
+    {
+        <li>@ViewData["Deletado"]</li>
+    }
+</div>

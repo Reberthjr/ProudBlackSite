@@ -1,0 +1,71 @@
+﻿@model ProudBlack.Models.Produto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar produto</h1>
+
+<hr />
+<form asp-action="Edit" role="form">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProdutoId" />
+    <div class="form-group">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DescricaoCurta" class="control-label"></label>
+        <textarea asp-for="DescricaoCurta" class="form-control"></textarea>
+        <span asp-validation-for="DescricaoCurta" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DescricaoDetalhada" class="control-label"></label>
+        <textarea asp-for="DescricaoDetalhada" class="form-control"></textarea>
+        <span asp-validation-for="DescricaoDetalhada" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Preco" class="control-label"></label>
+        <input asp-for="Preco" class="form-control" />
+        <span asp-validation-for="Preco" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label asp-for="ImagemUrl" class="control-label"></label>
+            <input asp-for="ImagemUrl" class="form-control" />
+            <span asp-validation-for="ImagemUrl" class="text-danger"></span>
+        </div>
+        <div class=" photo-frame form-group col-md-6">
+            <img class="img-fluid" width="300" height="200" src="@Model.ImagemUrl" />
+        </div>
+     </div>
+     <div class="form-group col-sm-12">
+            <label asp-for="CategoriaID" class="control-label"></label>
+            <select asp-for="CategoriaID" class="form-control" asp-items="ViewBag.categoriaId"></select>
+            <span asp-validation-for="CategoriaID" class="text-danger"></span>
+        </div>
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label class="control-label">Marcar como Preferido?</label>
+            <br />
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="EmPromocao" /> @Html.DisplayNameFor(model => model.EmPromocao)
+            </label>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label">Marcar como em Estoque?</label>
+            <br />
+            <label class="form-check-label" style="padding-left: 20px">
+                <input class="form-check-input" asp-for="EmEstoque" /> @Html.DisplayNameFor(model => model.EmEstoque)
+            </label>
+        </div>
+
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-outline-info">Retornar</a>
+    </div>
+</form>
+

@@ -1,0 +1,86 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<ProudBlack.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Produtos</h1>
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["filter"]" />
+    <button type="submit" class="btn btn-outline-primary">
+        <span class="glyphicon glyphicon-search" arial-hidden="true"></span>Procurar
+    </button>
+</form>
+
+Total de produtos : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar um novo produo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoCurta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoDetalhada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmPromocao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmEstoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoCurta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoDetalhada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmPromocao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmEstoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaName)
+            </td>
+            <td>
+                <div class="form-group">
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.ProdutoId">Editar</a><br>        
+                <a class="btn btn-outline-warning" asp-action="Details" asp-route-id="@item.ProdutoId" style ="margin-top:5px">Detalhes</a> <br> 
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.ProdutoId" style="margin-top:5px" >Deletar</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

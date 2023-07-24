@@ -1,0 +1,14 @@
+﻿@model ProdutoListViewModel
+
+
+<div>
+    <h2>@Model.CategoriaAtual</h2>
+</div>
+   <div class="Container">
+       <div class="row">
+    @foreach(var produto in Model.Produtos)
+    {
+        <partial name ="_ProdutoResumo" for= "@produto"/>
+    }
+    </div>
+</div>

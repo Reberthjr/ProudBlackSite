@@ -1,0 +1,14 @@
+﻿@model HomeViewModel
+
+<partial name="_Carousel"/>
+
+<h2> Promoção da semana ProudBlack</h2>
+<h4> Ta na hora de ficar estiloso!!!</h4>
+
+<div class="row">
+    @foreach(var produto in Model.ProdutosEmPromocao)
+    {
+        <partial name ="_ProdutoResumo" for ="@produto"/>
+    }
+
+</div>

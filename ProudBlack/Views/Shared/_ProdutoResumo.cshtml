@@ -1,0 +1,23 @@
+﻿@model Produto
+
+
+
+<div class="card col-sm-4 col-md-4 col-lg-4" style="width: 18rem;">
+    <img class="card-img-top img-thumbnail img-fluid" src="@Model.ImagemUrl" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card_title">
+            <a class="text-black" asp-controller="Produto" asp-action="Details"
+               asp-route-ProdutoId="@Model.ProdutoId">@Model.Nome</a>
+        </h5>
+        <p class="card-text">@Model.DescricaoDetalhada</p>
+        <h4 class="card-text">@Model.Preco</h4>
+        <button type="button" class="btn btn-outline-secondary">
+            <a class="btn " id="cartButton" asp-controller="CarrinhoCompra"
+               asp-action="AdicionarItemNoCarrinhoCompra" asp-route-ProdutoId="@Model.ProdutoId">
+                Incluir no Carrinho
+            </a>
+        </button>
+        <span class="position-absolute top-0 end-0 bg-danger text-white p-2">Promoção</span>
+    </div>
+</div>
+

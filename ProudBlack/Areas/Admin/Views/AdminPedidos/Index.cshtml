@@ -1,0 +1,110 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<ProudBlack.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Pedidos</h1>
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["filter"]" />
+    <button type="submit" class="btn btn-outline-primary">
+        <span class="glyphicon glyphicon-search" arial-hidden="true"></span>Procurar
+    </button>
+</form>
+
+Total de pedidos : @Model.TotalRecordCount
+
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar um pedido manualmente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Endereco1)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Endereco2)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.PedidoEnviado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedidoEntregueEm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sobrenome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidoEnviado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedidoEntregueEm)
+            </td>
+            <td>
+                <a class="btn btn-outline-primary"  asp-action="Edit" asp-route-id="@item.PedidoId">Editar</a> 
+                <a class="btn btn-outline-primary" asp-action="PedidoProduto" asp-route-id="@item.PedidoId" style="margin-top:5px">Ver itens</a>
+                <a class="btn btn-outline-warning" asp-action="Details" asp-route-id="@item.PedidoId" style="margin-top:5px">Detalhes</a> 
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.PedidoId" style="margin-top:5px">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
