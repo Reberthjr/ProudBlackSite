@@ -77,7 +77,7 @@ namespace ProudBlack.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProdutoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemThumbnailUrl,EmPromocao,EmEstoque,CategoriaID")] Produto produto)
+        public async Task<IActionResult> Create([Bind("ProdutoId,Nome,DescricaoCurta,DescricaoDetalhada,Preco,ImagemUrl,ImagemUrl2,ImagemUrl3,ImagemUrl4,ImagemThumbnailUrl,EmPromocao,EmEstoque,CategoriaID")] Produto produto)
         {
             if (ModelState.IsValid)
             {

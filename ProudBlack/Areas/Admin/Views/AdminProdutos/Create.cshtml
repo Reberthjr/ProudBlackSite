@@ -34,14 +34,25 @@
             </div>
             <div class="form-group">
                 <label asp-for="ImagemUrl" class="control-label"></label>
-                <input asp-for="ImagemUrl" class="form-control" />
+                <input asp-for="ImagemUrl" class="form-control" type="file" name="files" multiple class="button btn-outline-primary" />
                 <span asp-validation-for="ImagemUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImagemThumbnailUrl" class="control-label"></label>
-                <input asp-for="ImagemThumbnailUrl" class="form-control" />
-                <span asp-validation-for="ImagemThumbnailUrl" class="text-danger"></span>
+                <label asp-for="ImagemUrl2" class="control-label"></label>
+                <input asp-for="ImagemUrl2" class="form-control" type="file" name="files" multiple class="button btn-outline-primary" />
+                <span asp-validation-for="ImagemUrl2" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="ImagemUrl3" class="control-label"></label>
+                <input asp-for="ImagemUrl3" class="form-control" type="file" name="files" multiple class="button btn-outline-primary" />
+                <span asp-validation-for="ImagemUrl3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemUrl4" class="control-label"></label>
+                <input asp-for="ImagemUrl4" class="form-control" type="file" name="files" multiple class="button btn-outline-primary" />
+                <span asp-validation-for="ImagemUrl4" class="text-danger"></span>
+            </div>
+            
             <div class="form-group">
                 <label asp-for="CategoriaID" class="control-label"></label>
                 <select asp-for="CategoriaID" class ="form-control" asp-items="ViewBag.CategoriaID"></select>

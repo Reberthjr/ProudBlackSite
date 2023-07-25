@@ -18,7 +18,7 @@ namespace ProudBlack.Areas.Admin.Services
             var produtos = (from pd in context.PedidosDetalhes
                             join l in context.Produtos on pd.ProdutoId equals l.ProdutoId
                             where pd.Pedido.PedidoEnviado >= data 
-                            group pd by new {pd.ProdutoId,l.Nome, pd.Quantidade}
+                            group pd by new {pd.ProdutoId,l.Nome}
                             into g
                             select new
                             {

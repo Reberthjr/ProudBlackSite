@@ -12,12 +12,16 @@
         <p class="card-text">@Model.DescricaoDetalhada</p>
         <h4 class="card-text">@Model.Preco</h4>
         <button type="button" class="btn btn-outline-secondary">
-            <a class="btn " id="cartButton" asp-controller="CarrinhoCompra"
+            <a class="btn " id="cartButton" asp-controller="CarrinhoCompra" style=""
                asp-action="AdicionarItemNoCarrinhoCompra" asp-route-ProdutoId="@Model.ProdutoId">
                 Incluir no Carrinho
             </a>
         </button>
-        <span class="position-absolute top-0 end-0 bg-danger text-white p-2">Promoção</span>
+        @if(@Model.EmPromocao == true)
+        {
+            <span class="position-absolute top-0 end-0 bg-danger text-white p-2">Promoção</span>
+        }
+        
     </div>
 </div>
 
