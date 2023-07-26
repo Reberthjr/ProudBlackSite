@@ -52,7 +52,7 @@ namespace ProudBlack.Controllers
             if (string.IsNullOrEmpty(searchString))
             {
                 produtos = _produtosRepository.Produtos.OrderBy(p => p.ProdutoId);
-                categoriaAtual = "Todos os Lanches";
+                categoriaAtual = "Todos os Produtos";
             }
             else
             {

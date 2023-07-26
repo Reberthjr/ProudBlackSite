@@ -1,38 +1,35 @@
 ﻿@model LoginViewModel
 
-<table class="table">
-    <tr>
-        <td><img src="~/img/Login/login.png" height="120" width="120" alt="Fazer o Login" class="center-block" /></td>
-        <td>
-            <div class="row">
-                <div class="col-10 col-md-10 col-lg-10">
-                    <h4>Login</h4>
-                    <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
-                        <hr />
-                        <div asp-validation-summary="All" class="text-danger"></div>
-                        <input type="hidden" asp-for="ReturnUrl" />
-                        <div class="form-group">
-                            <label asp-for="UserName" class="col-md-2 control-label"></label>
-                            <div class="col-md-6">
-                                <input asp-for="UserName" class="form-control" />
-                                <span asp-validation-for="UserName" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Password" class="col-md-2 control-label"></label>
-                            <div class="col-md-6">
-                                <input asp-for="Password" class="form-control" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <input type="submit" class="btn btn-outline-success" value="Log in" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<div class="container" style="
+      margin:auto;
+      width: 300px;
+      background-color: #f0f0f0;
+      padding: 30px;">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="text-center">
+                <img src="~/img/Login/login.png" height="120" width="120" alt="Fazer o Login" />
+                <h4>Login</h4>
             </div>
-        </td>
-    </tr>
-</table>
+            <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="ReturnUrl" />
+                <div style="text-align:center" class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div style="text-align:center" class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center" style="margin-top:10px">
+                    <input type="submit" class="btn btn-outline-success" value="Log in" />
+                    <input type="submit" class="btn btn-outline-success" value="Log in" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
